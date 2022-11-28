@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-10-02
+  is_special: false
+  is_approved: MyString
+  boolean: MyString
+  books_id: one
+  librarians_id: one
+  students_id: one
+
+two:
+  date: 2019-10-02
+  is_special: false
+  is_approved: MyString
+  boolean: MyString
+  books_id: two
+  librarians_id: two
+  students_id: two

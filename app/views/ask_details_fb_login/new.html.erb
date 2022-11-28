@@ -1,0 +1,88 @@
+<h1> Welcome </h1>
+
+<h3>Kindly fill in these details</h3>
+
+<%= form_for :user, url: user_registration_path, method: :patch do |f| %>
+<!--(model: :user,url: fb_details_create_path) do |f| %>-->
+
+<%#= form_with(model: :user,url: fb_details_create_path) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: :user %>
+
+<!--  <div class="field">-->
+<!--    <%#= f.label :email %><br />-->
+    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= f.label :password %>
+    <%# if @minimum_password_length %>
+<!--      <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--    <%# end %><br />-->
+    <%#= f.password_field :password, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+<!--    <%#= f.label :password_confirmation %><br />-->
+    <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <span id="user_message"></span>-->
+<!--  </div>-->
+
+  <div class="field">
+    <%= f.label "Role" %>
+    <%= f.select(:role, options_for_select([['Student', 'user'], ['Librarian', 'librarian']]))%>
+  </div>
+
+
+  <!--  <div class="sub_form" id="lib2come">-->
+  <%#= render 'lib_form', librarian: @librarian %>`
+  <!--  </div>-->
+  <div class="sub_form" id="more2come">
+    <div class="sub_form" id="librarian_sub_form">
+      <%= f.fields_for(:librarian, local: true) do |form| %>
+
+        <div class="field" id="librarian_name">
+          <%= form.label :name %>
+          <%= form.text_field :name%>
+        </div>
+
+        <div class="field" id="library_name">
+          <%= form.label :library_name %><br>
+          <%= form.select :libraries_id, options_for_select(Library.all.map{ |l| [l.name, l.id] })%>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="sub_form" id="student_sub_form">
+      <%= f.fields_for(:student, local: true) do |form| %>
+        <div class="field" id="student_name">
+          <%= form.label :name %>
+          <%= form.text_field :name%>
+        </div>
+
+        <div class="field" id="student_education">
+          <%= form.label :education %>
+          <%= form.select :education, options_for_select([ ["Undergraduate","Undergraduate"], ["Masters","Masters"], ["PhD", "PhD"] ]) %>
+        </div>
+
+        <div class="field" id="student_university">
+          <%= form.label :university %>
+          <%= form.text_field :university%>
+        </div>
+
+        <div class="field" id="mb_field">
+          <%= form.label :max_books %>
+          <%= form.number_field :max_books %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", :id=>"user_submit"%>
+  </div>
+<% end %>
+
+<%#= render "devise/shared/links" %>

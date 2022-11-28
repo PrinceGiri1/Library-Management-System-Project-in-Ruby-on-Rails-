@@ -1,0 +1,32 @@
+<%= form_with(model: borrow_history, local: true) do |form| %>
+  <% if borrow_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(borrow_history.errors.count, "error") %> prohibited this borrow_history from being saved:</h2>
+
+      <ul>
+      <% borrow_history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_special %>
+    <%= form.check_box :is_special %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

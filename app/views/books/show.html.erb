@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Book Details</h2>
+
+<p>
+  <strong>Title: </strong>
+  <%= @book.title %><br>
+</p>
+
+<p>
+  <strong>ISBN: </strong>
+  <%= @book.isbn %><br>
+</p>
+
+<p>
+  <strong>Author: </strong>
+  <%= @book.author %><br>
+</p>
+
+<p>
+  <strong>Count of book: </strong>
+  <%= @book.book_count %><br>
+</p>
+
+<p>
+  <strong>Language: </strong>
+  <%= @book.language %>
+</p>
+
+<p>
+  <strong>Published Date: </strong>
+  <%= @book.published %>
+</p>
+
+<p>
+  <strong>Edition: </strong>
+  <%= @book.edition %>
+</p>
+
+<p>
+  <strong>Library Name: </strong>
+  <%= Library.find(@book.libraries_id).name %>
+</p>
+
+<p>
+  <strong>Subject: </strong>
+  <%= @book.subject %>
+</p>
+
+<!--  Refer: https://medium.com/@anaharris/how-to-add-image-upload-functionality-to-your-rails-app-9f7fc3f3d042-->
+<p>
+  <strong>Cover Image: </strong><br><br>
+  <% if @book.image.attached? %>
+    <image src="<%= (url_for(@book.image)) %>" height="180" width="220"></image>
+  <% else %>
+    No cover image present !
+  <% end %><br>
+</p>
+
+<p>
+  <strong>Is Special Collection?</strong>
+  <%= @book.special_collection %>
+</p>
+
+<p>
+  <strong>Summary: </strong>
+  <%= @book.summary %>
+</p>
+
+
+<br><%= link_to 'Edit', edit_book_path(@book) %><br>
+<%= link_to 'Back', books_path %> |

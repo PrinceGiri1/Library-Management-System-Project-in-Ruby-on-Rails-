@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.librarian? %>
+  <h1>Welcome <%= Librarian.find_by_email(current_user.email).name %> !</h1>
+<% else %>
+  <h1>Librarians</h1>
+<% end %>
+
+<table>
+  <thead>
+    <% if current_user.admin? %>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Library</th>
+        <th colspan="10"></th>
+      </tr>
+    <% end %>
+  </thead>
+
+  <tbody>
+    <% @librarians.each do |librarian| %>
+      <%# if current_user.librarian? && ((current_user.email == librarian.email) )%>
+<!--        <tr>-->
+<!--          <td><%#= librarian.email %></td>-->
+<!--          <td><%#= librarian.name %></td>-->
+<!--          <td><%#= @library_dict[librarian.libraries_id] %></td>-->
+<!--          <td><%#= link_to 'Edit', edit_librarian_path(librarian) %></td>-->
+<!--          <td><%#= link_to 'Destroy', librarian, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--        </tr>-->
+
+      <% if current_user.admin? %>
+        <tr>
+          <td><%= librarian.email %></td>
+          <td><%= librarian.name %></td>
+          <td><%= @library_dict[librarian.libraries_id] %></td>
+          <td><%= link_to 'Edit', edit_librarian_path(librarian) %></td>
+          <td><%= link_to 'Destroy', librarian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'View Libraries', libraries_path %><br>
+<%= link_to 'View Books', books_path %><br>
+<%= link_to 'View Borrowing History', borrow_histories_path %><br>
+<%= link_to 'View Special Book Requests', list_special_book_request_path %><br>
+<%= link_to "View Your Library's checked out books and fines", requests_path %>
+
+
+<% if current_user.librarian? %>
+  <br><%= link_to 'My Profile', Librarian.find_by_email(current_user.email) %><br>
+<% end %>
+
+<% unless current_user.librarian? %>
+  <br><%= link_to 'Back', user_homepage_path %><br>
+<% end %>

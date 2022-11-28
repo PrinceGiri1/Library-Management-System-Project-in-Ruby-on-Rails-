@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Borrow Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Book ID</th>
+      <th>Book Title</th>
+      <th>Student ID</th>
+      <th>Student Name</th>
+      <th>Date</th>
+      <th>Is special</th>
+      <th>Status</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @borrow_histories.each do |borrow_history| %>
+      <tr>
+        <td><%= borrow_history.id %></td>
+        <td><%= borrow_history.books_id %></td>
+        <td><%= Book.find(borrow_history.books_id).title %></td>
+        <td><%= borrow_history.students_id %></td>
+        <td><%= Student.find(borrow_history.students_id).name %></td>
+        <td><%= borrow_history.date %></td>
+        <td><%= borrow_history.is_special %></td>
+        <td><%= borrow_history.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', home_index_path %> |
+<%#= link_to 'New Borrow History', new_borrow_history_path %>

@@ -1,0 +1,41 @@
+<%= @var1 %>
+
+<h1>Books Pending Approval</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Books_ID</th>
+    <th>Book Title</th>
+    <th>Book Author</th>
+    <th>Student_ID</th>
+    <th>Student Name</th>
+    <th>Librarians_ID</th>
+    <th>Approve</th>
+<!--    <th>Deny</th>-->
+  </tr>
+  </thead>
+  <tbody>
+  <% @book_request.each do |book_request| %>
+      <tr>
+        <td><%= book_request.id %></td>
+        <td><%= book_request['date'] %></td>
+        <td><%= book_request['books_id'] %></td>
+        <td><%= Book.find_by_id(book_request['books_id']).title %></td>
+        <td><%= Book.find_by_id(book_request['books_id']).author %></td>
+        <td><%= Student.find_by_id(book_request['students_id']).id %></td>
+        <td><%= Student.find_by_id(book_request['students_id']).name %></td>
+        <td><%= book_request['librarians_id'] %></td>
+        <td><%= link_to 'Approve', approve_book_request_path(book_request, id: book_request.id)  %></td>
+<!--        <td><%#= link_to 'Deny', data: { confirm: 'Are you sure to deny this request?' } %></td>-->
+      </tr>
+    <% end %>
+
+
+  </tbody>
+    </table>
+
+<%= link_to 'Back', librarians_path %> |
+

@@ -1,0 +1,90 @@
+<title>
+  <%= javascript_include_tag 'book_input.js', 'data-turbolinks-track': 'reload' %>
+</title>
+
+<%= form_with(model: book, local: true) do |f| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%#= form_for :book, url: books_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+  </p>
+
+  <p>
+    <%= f.label :isbn %><br>
+    <%= f.text_field :isbn %><br>
+  </p>
+
+  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %><br>
+  </p>
+
+  <p>
+    <%= f.label :count_book %><br>
+    <%= f.number_field :book_count, :class => 'text_field' %>
+  </p>
+
+  <p>
+    <%= f.label :language %><br>
+    <%= f.select(:language, options_for_select([['English', 'English'], ['French', 'French'], ['German', 'German'], ['Russian', 'Russian'], ['Hindi', 'Hindi'], ['Gujarati', 'Gujarati'], ['Marathi', 'Marathi'], ['Kannada', 'Kannada'], ['Telugu', 'Telugu'], ['Tamil', 'Tamil']])) %>
+  </p>
+
+  <p>
+    <%= f.label :published %><br>
+    <%= f.date_field :published %>
+  </p>
+
+  <p>
+    <%= f.label :edition %><br>
+    <%= f.number_field :edition, :class => 'text_field' %>
+  </p>
+
+  <p>
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </p>
+
+<!--  Refer: https://medium.com/@anaharris/how-to-add-image-upload-functionality-to-your-rails-app-9f7fc3f3d042-->
+  <p>
+    <%= f.label :cover_image %><br>
+    <%= f.file_field :image, accept: 'image/png,image/jpeg' %>
+  </p>
+
+  <p>
+    <%= f.label :library_name %><br>
+    <%= f.select :libraries_id, options_for_select(Library.all.map{ |l| [l.name, l.id] }) %>
+  </p>
+
+  <p>
+    <%= f.label :is_special_collection %><br>
+    <%= f.select(:special_collection, options_for_select([['yes', 'true'], ['No', 'false']])) %>
+  </p>
+
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_field :summary %>
+  </p>
+
+  <!--    <p>-->
+  <%#= f.submit %>
+  <!--    </p>-->
+
+  <%# end %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

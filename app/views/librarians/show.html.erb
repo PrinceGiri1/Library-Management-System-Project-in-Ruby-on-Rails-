@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Librarian Profile</h2><br>
+
+<p>
+  <strong>Email:</strong>
+  <%= @librarian.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @librarian.name %>
+</p>
+
+<p>
+  <strong>Library:</strong>
+  <%= @library_dict[@librarian.libraries_id] %>
+</p>
+
+<br><%= link_to 'Change Password', edit_user_registration_path %><br>
+<%= link_to 'Edit', edit_librarian_path(@librarian) %><br>
+<%= link_to 'Back', librarians_path %> |

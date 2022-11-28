@@ -1,0 +1,72 @@
+<h1>Your Bookmarked Books</h1>
+
+<!--<table>-->
+<!--  <thead>-->
+
+<!--    <tr>-->
+<!--      <th>B</th>-->
+<!--      <th>Name</th>-->
+<!--      <th colspan="10"></th>-->
+<!--    </tr>-->
+
+<!--  </thead>-->
+
+<!--  <tbody>-->
+  <%# @bookmarks.each do |bookmark| %>
+<!--     <tr>-->
+<!--        <td><%#= Book.find(bookmark.books_id).title %></td>-->
+<!--        <td><%#= bookmark.users_id %></td>-->
+<!--        <td><%#= @library_dict[librarian.libraries_id] %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_librarian_path(librarian) %></td>-->
+<!--        <td><%#= link_to 'Destroy', librarian, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+
+  <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>ISBN</th>
+    <th>Author</th>
+    <th>Language</th>
+    <th>Edition</th>
+    <th>Cover Image</th>
+    <th>Subject</th>
+    <th>Date Published</th>
+    <th>Special Collection?</th>
+    <th colspan="10"></th>
+  </tr>
+  </thead>
+  <br>
+  <tbody>
+  <% @bookmarks_list.each do |bookmark| %>
+    <tr>
+      <td><%= bookmark[:title] %></td>
+      <td><%= bookmark[:isbn] %></td>
+      <td><%= bookmark[:author] %></td>
+      <td><%= bookmark[:language] %></td>
+      <td><%= bookmark[:edition] %></td>
+      <% if bookmark[:cover_image].attached? %>
+        <td><image src="<%= (url_for(bookmark[:cover_image])) %>" height="180" width="220"></image></td>
+      <% else %>
+        <td>No cover image present !</td>
+      <% end %><br>
+      <td><%= bookmark[:subject] %></td>
+      <td><%= bookmark[:published] %></td>
+      <td><%= bookmark[:special_collection] %></td>
+
+      <% if current_user.user? %>
+        <td><%= link_to 'Show', book_path(bookmark[:id]) %></td>
+        <td><%= link_to 'Un-Bookmark', unbookmarked_path(bookmark, :id => bookmark[:id]) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<br><%= link_to 'Back', home_index_path %> |

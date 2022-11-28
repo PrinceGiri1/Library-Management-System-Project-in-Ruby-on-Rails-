@@ -1,0 +1,53 @@
+<p5><b>Books on Hold Requests</b></p5>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Book ID</th>
+    <th>Book Title</th>
+  </tr>
+
+  </thead>
+
+  <tbody>
+  <% @book_request.each do |book_request| %>
+    <% @book_title = Book.find(book_request[:books_id]).title %>
+    <tr>
+      <td><%= book_request[:id] %></td>
+      <td><%= book_request[:books_id] %></td>
+      <td><%= @book_title %></td>
+      <td><%= link_to 'Delete Reservation/Hold Request', delete_hold_request_path(:id => book_request[:id])  %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table><br><br><br>
+
+<p5><b>Books pending Approval from Librarian</b></p5>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Book ID</th>
+    <th>Book Title</th>
+  </tr>
+
+  </thead>
+
+  <tbody>
+  <% @book_request_1.each do |book_request_1| %>
+    <% @book_title_1 = Book.find(book_request_1[:books_id]).title %>
+    <tr>
+      <td><%= book_request_1[:id] %></td>
+      <td><%= book_request_1[:books_id] %></td>
+      <td><%= @book_title_1 %></td>
+      <td><%= link_to 'Cancel Pending Approval Book Request', delete_hold_request_path(:id => book_request_1[:id])  %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+
+<br><%= link_to 'Back', home_index_path %>

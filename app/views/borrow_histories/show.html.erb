@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @borrow_history.date %>
+</p>
+
+<p>
+  <strong>Is special:</strong>
+  <%= @borrow_history.is_special %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @borrow_history.status %>
+</p>
+
+<%= link_to 'Edit', edit_borrow_history_path(@borrow_history) %> |
+<%= link_to 'Back', borrow_histories_path %>

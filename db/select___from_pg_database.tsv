@@ -1,0 +1,12 @@
+postgres	10	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+lms	10	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+template1	10	6	en_IN	en_IN	true	true	-1	13052	548	1	1663	{=c/postgres,postgres=CTc/postgres}
+template0	10	6	en_IN	en_IN	true	false	-1	13052	548	1	1663	{=c/postgres,postgres=CTc/postgres}
+lms2	10	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+lol3_development	16390	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+lol3_test	16390	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+lol3	10	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+alphadb	16394	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+db/lol3_development	16394	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+db/lol3_development_again	16394	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	
+db/lol3_test	16394	6	en_IN	en_IN	false	true	-1	13052	548	1	1663	

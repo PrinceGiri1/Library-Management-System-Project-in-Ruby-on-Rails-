@@ -1,0 +1,6 @@
+tmp/
+.idea/
+log/
+app/.DS_Store
+app/views/.DS_Store
+config/database.yml

@@ -1,0 +1,51 @@
+<div class="sub_form" id="librarian_sub_form">
+  <%= fields_for :librarian do |form| %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name , :required => true%>
+    </div>
+
+    <div class="field">
+      <%= form.label :library_name %><br>
+      <%= form.select :libraries_id, options_for_select(Library.all.map{ |l| [l.name, l.id] })%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="sub_form" id="student_sub_form">
+
+  <%= fields_for :student do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :education %>
+      <%= form.select :education, options_for_select([ ["Undergraduate","Undergradudate"], ["Masters","Masters"], ["PhD", "PhD"] ]), :required => true  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :university %>
+      <%= form.text_field :university, :required => true %>
+    </div>
+
+    <div class="field" id="mb_field">
+      <%= form.label :max_books %>
+      <%= form.number_field :max_books %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
+<% end %>
+</div>
+

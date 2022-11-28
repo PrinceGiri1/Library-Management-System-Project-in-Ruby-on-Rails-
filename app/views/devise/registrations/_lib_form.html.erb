@@ -1,0 +1,19 @@
+<div class="sub_form" id="librarian_sub_form">
+  <%= form_for :librarian do |lib_form| %>
+
+    <div class="field">
+      <%= lib_form.label :name %>
+      <%= lib_form.text_field :name , :required => true%>
+    </div>
+
+    <div class="field">
+      <%= lib_form.label :library_name %><br>
+      <%= lib_form.select :libraries_id, options_for_select(Library.all.map{ |l| [l.name, l.id] })%>
+    </div>
+
+    <div class="actions">
+      <%= lib_form.submit %>
+    </div>
+  <% end %>
+
+</div>

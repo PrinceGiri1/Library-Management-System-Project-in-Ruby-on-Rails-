@@ -1,0 +1,32 @@
+<%= form_with(model: librarian, local: true) do |form| %>
+  <% if librarian.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(librarian.errors.count, "error") %> prohibited this librarian from being saved:</h2>
+
+      <ul>
+        <% librarian.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email , :required => true%>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name , :required => true%>
+  </div>
+
+  <div class="field">
+    <%= form.label :library_name %><br>
+    <%= form.select :libraries_id, options_for_select(Library.all.map{ |l| [l.name, l.id] })%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

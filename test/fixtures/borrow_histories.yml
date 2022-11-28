@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-10-08
+  is_special: false
+  status: MyString
+
+two:
+  date: 2019-10-08
+  is_special: false
+  status: MyString

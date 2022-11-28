@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Student Profile:</h2><br>
+
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<!--<p>-->
+<!--  <strong>Password:</strong>-->
+  <%#= @student.password %>
+<!--</p>-->
+
+<p>
+  <strong>Education:</strong>
+  <%= @student.education %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @student.university %>
+</p>
+
+<p>
+  <strong>Max books:</strong>
+  <%= @student.max_books %>
+</p>
+
+<p>
+  <strong>Fines:</strong>
+  <%= @student.fines %>
+</p>
+
+<br><%= link_to 'Change Password', edit_user_registration_path %><br>
+<%= link_to 'Edit Profile', edit_student_path(@student) %><br>
+<br><%= link_to 'Back', students_path %> |
