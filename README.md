@@ -1,6 +1,6 @@
 # Library-Management-System-Rails
 
-A web application for managing the library and its operations. This was my project in the "CSC 517: Object Oriented Design and Development" course at NC State University.
+A web application for managing the library and its operations. 
 
 Deployed a web application using Ruby on Rails and Heroku that allows students to checkout & return books, librarians to view overdue fines and admin to CRUD libraries, books, users and view borrowing history & fines. Integrated 3rd-party ruby gems like Devise and Pundit to make the app more functional.
 
