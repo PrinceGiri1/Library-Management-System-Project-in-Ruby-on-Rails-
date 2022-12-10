@@ -2,10 +2,6 @@
 
 A web application for managing the library and its operations. 
 
-Deployed a web application using Ruby on Rails and Heroku that allows students to checkout & return books, librarians to view overdue fines and admin to CRUD libraries, books, users and view borrowing history & fines. Integrated 3rd-party ruby gems like Devise and Pundit to make the app more functional.
-
-* <strong>Heroku App Link:</strong> https://glacial-reaches-87041.herokuapp.com/
-
 ### Configuration information:
 
 * <strong>Ruby version:</strong> 2.6.3 : <strong>Rails version:</strong> 5.2.3
@@ -13,10 +9,6 @@ Deployed a web application using Ruby on Rails and Heroku that allows students t
 * <strong>3rd-party gems used:</strong> Devise, Pundit, OAuth-Facebook
 
 * <strong>Database used:</strong> PostgreSQL
-
-### Pre-configured admin account details:
-
-* Email: admin@admin.com  |  Password: admin
 
 ### Testing various features:
 
